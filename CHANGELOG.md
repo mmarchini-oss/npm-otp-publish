@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.2.2](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.2.1...v0.2.2) (2020-08-28)
+
+
+### Bug Fixes
+
+* use correct error page ([23105ca](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/23105ca1c918c7771d6aa5354db749694898ec99))
+* use correct token ([8051e41](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/8051e41d2d70048553cb9784a6b6b983d2dd95fd))
+
 ### [0.2.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.2.0...v0.2.1) (2020-08-28)
 
 

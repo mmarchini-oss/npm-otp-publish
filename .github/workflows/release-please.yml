@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: GoogleCloudPlatform/release-please-action@v1.6.3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.BOT_TOKEN }}
           release-type: node
           package-name: '@mmarchini/node-otp-publish'

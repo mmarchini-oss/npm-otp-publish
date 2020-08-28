@@ -1,0 +1,12 @@
+name: 'npm-otp-publish'
+description: 'Action to publish npm pacakges using One-Time Passwords'
+inputs:
+  npm_token:
+    description: 'npm token'
+    required: true
+  github_token:  # id of input
+    description: 'github token'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'

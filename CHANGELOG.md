@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.2.0...v0.2.1) (2020-08-28)
+
+
+### Bug Fixes
+
+* install before running publisher ([9150c36](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/9150c36702e221019a6c067a82f4193b21b08d4f))
+
 ## [0.2.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.1.0...v0.2.0) (2020-08-28)
 
 

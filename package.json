@@ -1,0 +1,33 @@
+{
+  "name": "@mmarchini/npm-otp-publish",
+  "version": "0.1.0",
+  "description": "Action to publish npm pacakges using One-Time Passwords",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmarchini-oss/npm-otp-publish.git"
+  },
+  "author": "Mary Marchini <oss@mmarchini.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmarchini-oss/npm-otp-publish/issues"
+  },
+  "homepage": "https://github.com/mmarchini-oss/npm-otp-publish#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.5",
+    "@jsdevtools/npm-publish": "^1.2.0",
+    "fastify": "^3.3.0",
+    "fastify-formbody": "^5.0.0",
+    "fastify-static": "^3.2.0",
+    "fastq": "^1.8.0",
+    "ngrok": "^3.2.7",
+    "queue": "^6.0.1"
+  },
+  "devDependencies": {
+    "pino-pretty": "^4.1.0",
+    "standard": "^14.3.4"
+  }
+}

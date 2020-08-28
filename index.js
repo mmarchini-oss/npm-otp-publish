@@ -61,7 +61,7 @@ try {
         // TODO(mmarchini): limit attempts
         // TODO(mmarchini): limit time
         app.log.error({ stdout: err.stdout, stderr: err.stderr }, err)
-        return reply.sendFile('failed.html')
+        return reply.sendFile('failure.html')
       } else {
         queue.kill()
         queue.pause()

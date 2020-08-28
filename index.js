@@ -58,6 +58,8 @@ try {
     app.log.info('foo')
     queue.push({ otp: request.body.otp, log: app.log }, err => {
       if (err) {
+        // TODO(mmarchini): limit attempts
+        // TODO(mmarchini): limit time
         app.log.error({ stdout: err.stdout, stderr: err.stderr }, err)
         return reply.sendFile('failed.html')
       } else {

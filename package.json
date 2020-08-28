@@ -18,6 +18,7 @@
   "homepage": "https://github.com/mmarchini-oss/npm-otp-publish#readme",
   "dependencies": {
     "@actions/core": "^1.2.5",
+    "@actions/github": "^4.0.0",
     "@jsdevtools/npm-publish": "^1.2.0",
     "fastify": "^3.3.0",
     "fastify-formbody": "^5.0.0",

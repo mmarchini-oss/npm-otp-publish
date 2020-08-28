@@ -60,7 +60,14 @@ try {
       if (err) {
         app.log.error({ stdout: err.stdout, stderr: err.stderr }, err)
         return reply.sendFile('failed.html')
-      } else { return reply.sendFile('success.html') }
+      } else {
+        queue.kill()
+        queue.pause()
+        setTimeout(() => {
+          app.close()
+        }, 100)
+        return reply.sendFile('success.html')
+      }
     })
   })
 

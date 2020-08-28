@@ -15,5 +15,5 @@ jobs:
     - run: npm ci
     - uses: ./
       with:
-        npm_token: ${{ secrets.GITHUB_TOKEN }}
+        npm_token: ${{ secrets.NPM_TOKEN }}
         github_token: ${{ secrets.GITHUB_TOKEN }}

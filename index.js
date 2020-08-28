@@ -61,13 +61,16 @@ try {
         // TODO(mmarchini): limit attempts
         // TODO(mmarchini): limit time
         app.log.error({ stdout: err.stdout, stderr: err.stderr }, err)
+        // TODO(mmarchini): stderr on response
         return reply.sendFile('failure.html')
       } else {
+        // TODO(mmarchini): Close issue
         queue.kill()
         queue.pause()
         setTimeout(() => {
           app.close()
         }, 100)
+        // TODO(mmarchini): Redirect/link to GitHub or npm
         return reply.sendFile('success.html')
       }
     })
@@ -85,10 +88,11 @@ try {
         ...context.repo,
         title: 'Provide OTP for release', // TODO(mmarchini): show version number
         body: ngrokUrl // TODO(mmarchini): add more info to the issue
+        // TODO(mmarchini): Mention team
+        // TODO(mmarchini): Update issue if exists (in case of rerun)
       })
       app.log.info('issue created')
     }
-    // TODO(mmarchini): create issue
   })
 } catch (error) {
   core.setFailed(error.message)

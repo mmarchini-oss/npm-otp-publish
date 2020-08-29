@@ -46,7 +46,9 @@ try {
   }
   const queue = fastq(tryToPublish, 1)
   const app = fastify({
-    logger: true
+    logger: {
+      prettyPrint: true
+    }
   })
 
   app.register(require('fastify-formbody'))

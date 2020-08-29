@@ -13,6 +13,10 @@ inputs:
   github_token:  # id of input
     description: 'github token'
     required: true
+  notifier:  # id of input
+    description: 'notifier to be used'
+    required: true
+    default: 'github-issue'
 runs:
   using: 'node12'
   main: 'index.js'

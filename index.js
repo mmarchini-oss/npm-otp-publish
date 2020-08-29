@@ -102,7 +102,7 @@ try {
     const ngrokUrl = await ngrok.connect(3000)
     app.log.info({ ngrokUrl }, 'ngrok connected')
     if (octokit) {
-      app.log.info('creating issue')
+      app.log.info(context, 'creating issue')
       await octokit.issues.create({
         ...context.repo,
         title: 'Provide OTP for release', // TODO(mmarchini): show version number

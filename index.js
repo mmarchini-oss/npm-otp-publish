@@ -12,9 +12,12 @@ const exec = promisify(require('child_process').exec)
 
 const NPMRC_PATH = path.join(process.cwd(), '.npmrc')
 const NPM_TOKEN = process.env.NPM_TOKEN || core.getInput('npm_token')
+const NPM_USER = process.env.NPM_USER || core.getInput('npm_user')
 const context = github.context;
-const githubToken = core.getInput('github_token');
+const githubToken = process.env.GITHUB_TOKEN || core.getInput('github_token');
+const versionUrl = process.env.VERSION_URL || core.getInput('version_url');
 const octokit = githubToken ? github.getOctokit(githubToken) : null;
+const packageJson = require(path.join(process.cwd(), 'package.json'))
 
 async function npmPublish (otp, log) {
   // TODO(mmarchini): take existing file into account
@@ -42,16 +45,32 @@ function tryToPublish ({ otp, log }, cb) {
 }
 
 try {
+  const templateContext = {
+    npm_user: NPM_USER,
+    repo: {
+      url: 'https://github.com/mmarchini-oss/npm-otp-publish',
+      name: 'mmarchini-oss/npm-otp-publish'
+    },
+    version: {
+      url: versionUrl,
+      name: packageJson.version
+    },
+  }
   const queue = fastq(tryToPublish, 1)
   const app = fastify({
     logger: true
   })
 
-  app.register(require('fastify-static'), {
-    root: path.join(__dirname, 'public'),
-    fix: '/'
-  })
   app.register(require('fastify-formbody'))
+  app.register(require('point-of-view'), {
+    engine: {
+      ejs: require('ejs')
+    }
+  })
+
+  app.get('/', (request, reply) => {
+    return reply.view('/public/index.ejs', templateContext)
+  })
 
   // TODO(mmarchini): CORS
   app.post('/', (request, reply) => {
@@ -62,7 +81,7 @@ try {
         // TODO(mmarchini): limit time
         app.log.error({ stdout: err.stdout, stderr: err.stderr }, err)
         // TODO(mmarchini): stderr on response
-        return reply.sendFile('failure.html')
+        return reply.view('/public/failure.ejs')
       } else {
         // TODO(mmarchini): Close issue
         queue.kill()
@@ -71,7 +90,7 @@ try {
           app.close()
         }, 100)
         // TODO(mmarchini): Redirect/link to GitHub or npm
-        return reply.sendFile('success.html')
+        return reply.view('/public/success.ejs')
       }
     })
   })

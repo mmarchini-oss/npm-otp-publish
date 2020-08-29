@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>npm OTP authentication</title>
+    </head>
+    <body>
+        <h1 class="splash-head">npm One-Time Password (OTP)</h1>
+        <p>Please enter an OPT
+        <% if (npm_user) { %>
+        for the user <b><%= npm_user %></b>
+        <% } %>
+        to publish
+        <b><a target=_blank href="<%= repo.url %>"><%= repo.name %></a></b>
+        version
+        <b>
+            <% if (version.url) { %>
+            <a target=_blank href="<%= version.url %>">
+            <% } %>
+                <%= version.name %>
+            <% if (version.url) { %>
+            </a>
+            <% } %>
+        </p>
+        <form action="/" method="POST" class="pure-form-stacked">
+            <fieldset>
+                <label for="otp">One-Time Password</label>
+                <input type="string" minlength=6 maxlength=6 id="otp" name="otp" placeholder="OTP">
+                <button type="submit" class="pure-button pure-button-primary">Send OTP and Publish</button>
+            </fieldset>
+            <!-- TODO(mmarchini): Number doesnt work if start with 0 -->
+        </form>
+    </body>
+</html>

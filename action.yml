@@ -1,6 +1,12 @@
 name: 'npm-otp-publish'
 description: 'Action to publish npm pacakges using One-Time Passwords'
 inputs:
+  npm_user:
+    description: 'npm user name'
+    required: false
+  version_url:
+    description: 'version url'
+    required: false
   npm_token:
     description: 'npm token'
     required: true

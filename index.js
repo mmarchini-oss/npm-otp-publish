@@ -18,6 +18,8 @@ const githubToken = process.env.GITHUB_TOKEN || core.getInput('github_token');
 const versionUrl = process.env.VERSION_URL || core.getInput('version_url');
 const octokit = githubToken ? github.getOctokit(githubToken) : null;
 const packageJson = require(path.join(process.cwd(), 'package.json'))
+const repoName = process.env.REPO_NAME || context.payload.repository.full_name;
+const repoUrl = process.env.REPO_URL || context.payload.repository.html_url;
 
 async function npmPublish (otp, log) {
   log.info('publish attempt')
@@ -36,8 +38,8 @@ try {
   const templateContext = {
     npm_user: NPM_USER,
     repo: {
-      url: 'https://github.com/mmarchini-oss/npm-otp-publish',
-      name: 'mmarchini-oss/npm-otp-publish'
+      url: repoUrl,
+      name: repoName
     },
     version: {
       url: versionUrl,

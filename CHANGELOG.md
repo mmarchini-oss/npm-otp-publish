@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.6.0...v0.7.0) (2020-08-29)
+
+
+### Features
+
+* detect repo name and url ([fbb9d3b](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/fbb9d3be6e8c6415a7ae588009c8fa6011ec0f44))
+
 ## [0.6.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.5.0...v0.6.0) (2020-08-29)
 
 

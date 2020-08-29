@@ -4,6 +4,27 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>npm OTP authentication</title>
+        <style>
+            input#otp {
+                text-indent: 0px;
+                padding-right: 0;
+                letter-spacing: 42px;
+                width: 280px !important;
+                border: 0;
+                box-shadow: none !important;
+                background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+                background-position: bottom;
+                background-size: 50px 1px;
+                background-repeat: repeat-x;
+                background-position-x: 35px;
+                background-color: transparent;
+                display: inline-block;
+                position:sticky;
+            }
+            form {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <h1 class="splash-head">npm One-Time Password (OTP)</h1>
@@ -23,13 +44,25 @@
             </a>
             <% } %>
         </p>
-        <form action="/" method="POST" class="pure-form-stacked">
-            <fieldset>
-                <label for="otp">One-Time Password</label>
-                <input type="string" minlength=6 maxlength=6 id="otp" name="otp" placeholder="OTP">
-                <button type="submit" class="pure-button pure-button-primary">Send OTP and Publish</button>
-            </fieldset>
-            <!-- TODO(mmarchini): Number doesnt work if start with 0 -->
+        <form action="/" method="POST" autocomplete="off">
+            <input type="string" minlength=6 maxlength=6 size=6
+                   id="otp" name="otp">
         </form>
+        <script>
+            document.querySelector("#otp").addEventListener("keypress", event => {
+                event.preventDefault();
+                const { target } = event
+                const reg = /\d/g;
+                const inputChar = String.fromCharCode(event.which);
+                if ( reg.test(inputChar) && (target.value.length < 6) ) {
+                    target.value = target.value + inputChar;
+                    if (target.value.length === 6) {
+                        target.parentElement.submit()
+                    }
+                }else{
+                    return;
+                }
+            })
+        </script>
     </body>
 </html>

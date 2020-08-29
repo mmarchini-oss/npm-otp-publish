@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.4.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.4.0...v0.4.1) (2020-08-29)
+
+
+### Bug Fixes
+
+* **ci:** use correct context attribute ([3221261](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/32212616a0a53f691b3fd453abacc1f5ffa12c12))
+* force process to close after published ([5a5a4c9](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/5a5a4c94f8f10bb04d3086319fed1d9ed64f686f))
+
 ## [0.4.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.3.0...v0.4.0) (2020-08-29)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.4.1...v0.5.0) (2020-08-29)
+
+
+### Features
+
+* use simpler authentication method ([3a0c850](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/3a0c850f73d95eea13ceebef3855900efd207b49))
+
 ### [0.4.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.4.0...v0.4.1) (2020-08-29)
 
 

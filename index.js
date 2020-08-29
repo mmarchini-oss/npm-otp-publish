@@ -20,24 +20,12 @@ const octokit = githubToken ? github.getOctokit(githubToken) : null;
 const packageJson = require(path.join(process.cwd(), 'package.json'))
 
 async function npmPublish (otp, log) {
-  // TODO(mmarchini): take existing file into account
-  try {
-    log.info({ file: NPMRC_PATH }, 'creating file')
-    writeFile(NPMRC_PATH, `//registry.npmjs.org/:_authToken=${NPM_TOKEN}`)
-    log.info({ file: NPMRC_PATH }, 'file created')
-
-    log.info('publish attempt')
-    log.debug({ otp })
-    // TODO(mmarchini): custom npm publish command?
-    // TODO(mmarchini): allow private repositories as well
-    await exec(`npm publish --access public --otp ${otp}`)
-    log.info('publish successful')
-    return null
-  } finally {
-    log.info({ file: NPMRC_PATH }, 'cleaning up')
-    await unlink(NPMRC_PATH)
-    log.info({ file: NPMRC_PATH }, 'cleaned up')
-  }
+  log.info('publish attempt')
+  log.debug({ otp })
+  // TODO(mmarchini): custom npm publish command?
+  await exec(`npm publish --token=${NPM_TOKEN} --otp=${otp}`)
+  log.info('publish successful')
+  return null
 }
 
 function tryToPublish ({ otp, log }, cb) {

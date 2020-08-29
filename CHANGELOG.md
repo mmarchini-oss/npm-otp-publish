@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.7.0...v0.8.0) (2020-08-29)
+
+
+### Features
+
+* close issue after publishing ([cb5b850](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/cb5b850a40fadb3d0992d118dc42b360bee7314a))
+
 ## [0.7.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.6.0...v0.7.0) (2020-08-29)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.5.0...v0.6.0) (2020-08-29)
+
+
+### Features
+
+* otp-style input field with autosubmit ([e71d656](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/e71d656c51cd78d11b569440a325e48411053522))
+
 ## [0.5.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.4.1...v0.5.0) (2020-08-29)
 
 

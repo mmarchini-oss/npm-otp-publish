@@ -9,7 +9,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: GoogleCloudPlatform/release-please-action@v1.6.3
+        id: release
         with:
-          token: ${{ secrets.BOT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           package-name: '@mmarchini/node-otp-publish'
+
+      - uses: actions/checkout@v2
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Use Node.js 12.x
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm ci
+        if: ${{ steps.release.outputs.release_created }}
+      - uses: ./
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          npm_token: ${{ secrets.NPM_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          version_url: https://github.com/${{ github.repo }}/releases/tag/${{ steps.release.outputs.tag_name }}
+          npm_user: mmarchini-bot

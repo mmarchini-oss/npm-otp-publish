@@ -29,5 +29,5 @@ jobs:
         with:
           npm_token: ${{ secrets.NPM_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          version_url: https://github.com/${{ github.repo }}/releases/tag/${{ steps.release.outputs.tag_name }}
+          version_url: https://github.com/${{ github.repository }}/releases/tag/${{ steps.release.outputs.tag_name }}
           npm_user: mmarchini-bot

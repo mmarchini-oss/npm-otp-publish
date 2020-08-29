@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.2.2...v0.3.0) (2020-08-29)
+
+
+### Features
+
+* improve landing page ([0a5dfe2](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/0a5dfe207520072ca17fe3acf57d628b82b3d48c))
+
 ### [0.2.2](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.2.1...v0.2.2) (2020-08-28)
 
 

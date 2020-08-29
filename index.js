@@ -87,7 +87,7 @@ try {
         queue.kill()
         queue.pause()
         setTimeout(() => {
-          app.close()
+          app.close(() => process.exit(0))
         }, 100)
         // TODO(mmarchini): Redirect/link to GitHub or npm
         return reply.view('/public/success.ejs')

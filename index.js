@@ -1,39 +1,20 @@
 'use strict'
 
 const core = require('@actions/core')
-const github = require('@actions/github')
 const fastify = require('fastify')
-const path = require('path')
 const ngrok = require('ngrok')
 
+const { templateContext } = require('./lib/config')
 const { NpmPublish } = require('./lib/npm-publish')
+const { Notifier } = require('./lib/notifier')
 
-const NPM_USER = process.env.NPM_USER || core.getInput('npm_user')
-const context = github.context
-const githubToken = process.env.GITHUB_TOKEN || core.getInput('github_token')
-const versionUrl = process.env.VERSION_URL || core.getInput('version_url')
-const octokit = githubToken ? github.getOctokit(githubToken) : null
-const packageJson = require(path.join(process.cwd(), 'package.json'))
-const repoName = process.env.REPO_NAME || context?.payload?.repository?.full_name
-const repoUrl = process.env.REPO_URL || context?.payload?.repository?.html_url
-
-const templateContext = {
-  npm_user: NPM_USER,
-  repo: {
-    url: repoUrl,
-    name: repoName
-  },
-  version: {
-    url: versionUrl,
-    name: packageJson.version
-  }
-}
 const app = fastify({
   logger: {
     prettyPrint: true
   }
 })
 const npmPublish = new NpmPublish(app.log)
+const notifier = new Notifier(app.log)
 
 app.register(require('fastify-formbody'))
 app.register(require('point-of-view'), {
@@ -56,10 +37,17 @@ app.post('/', async (request, reply) => {
       app.log.error('publish successful')
       // TODO(mmarchini): Close issue
       npmPublish.end()
-      setTimeout(() => {
-        app.log.error('closing server')
-        app.close(() => process.exit(0))
-      }, 100)
+      const cb = err => {
+        if (err) {
+          app.log.error(err)
+        }
+        setTimeout(() => {
+          app.log.info('closing server')
+          app.close(() => process.exit(0))
+        }, 100)
+      }
+      notifier.end().then(cb, cb)
+
       // TODO(mmarchini): Redirect/link to GitHub or npm
       return reply.view('/public/success.ejs')
     }
@@ -88,18 +76,7 @@ app.listen(3000, async (err, address) => {
   app.log.info(`server listening on ${address}`)
 
   const ngrokUrl = await ngrok.connect(3000)
-  app.log.info({ ngrokUrl }, 'ngrok connected')
-  if (octokit) {
-    app.log.info(context, 'creating issue')
-    await octokit.issues.create({
-      ...context.repo,
-      title: 'Provide OTP for release', // TODO(mmarchini): show version number
-      body: ngrokUrl // TODO(mmarchini): add more info to the issue
-      // TODO(mmarchini): Mention team
-      // TODO(mmarchini): Update issue if exists (in case of rerun)
-    })
-    app.log.info('issue created')
-  }
+  notifier.notify(ngrokUrl)
 })
 
 process.on('uncaughtException', (error) => {

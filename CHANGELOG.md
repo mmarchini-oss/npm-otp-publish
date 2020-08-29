@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.3.0...v0.4.0) (2020-08-29)
+
+
+### Features
+
+* don't use bot token for release-please ([2e7dffc](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/2e7dffc6e8f6868ed0c224bb0145c3b4684d1598))
+
 ## [0.3.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.2.2...v0.3.0) (2020-08-29)
 
 

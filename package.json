@@ -21,9 +21,8 @@
   },
   "homepage": "https://github.com/mmarchini-oss/npm-otp-publish#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5",
-    "@actions/github": "^4.0.0",
     "@jsdevtools/npm-publish": "^1.2.0",
+    "@octokit/rest": "^18.0.4",
     "ejs": "^3.1.5",
     "fastify": "^3.3.0",
     "fastify-formbody": "^5.0.0",
@@ -35,6 +34,7 @@
     "yargs": "^15.4.1"
   },
   "devDependencies": {
+    "nock": "^13.0.4",
     "nyc": "^15.1.0",
     "pino-pretty": "^4.2.0",
     "standard": "^14.3.4",

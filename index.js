@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 'use strict'
 
-const core = require('@actions/core')
 const fastify = require('fastify')
 const ngrok = require('ngrok')
 const { GITHUB_EVENT_PATH } = process.env
@@ -95,10 +94,6 @@ async function main () {
     app.log.info('notifying...')
     await notifier.notify(ngrokUrl)
     app.log.info('notifying... done')
-  })
-
-  process.on('uncaughtException', (error) => {
-    core.setFailed(error.message)
   })
 }
 

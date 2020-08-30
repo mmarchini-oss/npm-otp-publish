@@ -21,8 +21,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - '--npm_user=${{ inputs.npm_user }}'
-    - '--version_url=${{ inputs.version_url }}'
-    - '--npm_token=${{ inputs.npm_token }}'
-    - '--github_token=${{ inputs.github_token }}'
+    - '--npm-user=${{ inputs.npm_user }}'
+    - '--version-url=${{ inputs.version_url }}'
+    - '--npm-token=${{ inputs.npm_token }}'
+    - '--github-token=${{ inputs.github_token }}'
     - '--notifier=${{ inputs.notifier }}'

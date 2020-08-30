@@ -17,14 +17,20 @@ const mockLogger = {
 test('should create and close issue', async t => {
   const repo = 'xyz'
   const owner = 'acme'
-  const scope = nock('https://api.github.com')
-    .post(`/repos/${owner}/${repo}/issues`)
+  const scope = nock('https://api.github.com', {
+    reqheaders: {
+      authorization: 'token ***'
+    }
+  }).post(`/repos/${owner}/${repo}/issues`)
     .reply(201, { number: 123 })
-  const scope2 = nock('https://api.github.com')
-    .patch(`/repos/${owner}/${repo}/issues/123`, { state: 'closed' })
+  const scope2 = nock('https://api.github.com', {
+    reqheaders: {
+      authorization: 'token ***'
+    }
+  }).patch(`/repos/${owner}/${repo}/issues/123`, { state: 'closed' })
     .reply(200)
 
-  const octokit = new Octokit('***')
+  const octokit = new Octokit({ auth: '***' })
   const notifier = new GitHubIssueNotifier({ octokit, repo: { owner, repo } }, mockLogger)
   await notifier.notify()
   scope.done()

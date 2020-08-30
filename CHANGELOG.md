@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.9.9](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.8...v0.9.9) (2020-08-30)
+
+
+### Bug Fixes
+
+* **notifier:** more tests and loggers ([5e962d3](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/5e962d38538d27416ab7d624696fb3e105783959))
+
 ### [0.9.8](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.7...v0.9.8) (2020-08-30)
 
 

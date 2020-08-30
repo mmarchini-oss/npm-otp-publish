@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.9.4](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.3...v0.9.4) (2020-08-30)
+
+
+### Bug Fixes
+
+* remove options that don't work ([fa671bd](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/fa671bd7d0524275ec42287c9dce93f5d19b7838))
+
 ### [0.9.3](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.2...v0.9.3) (2020-08-30)
 
 

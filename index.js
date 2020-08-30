@@ -14,13 +14,13 @@ const { Notifier } = require('./lib/notifier')
 async function main () {
   let options
   try {
-    options = await getOptions(process.argv)
+    options = await getOptions(process.argv, process.env)
   } catch (err) {
     console.error(err.output)
     process.exit(1)
   }
 
-  const config = getConfig(options, process.env, context)
+  const config = getConfig(options)
   const app = fastify({
     logger: {
       prettyPrint: true

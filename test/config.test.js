@@ -51,8 +51,7 @@ test('passing all arguments with env should succeed', async t => {
     githubToken,
     npmUser,
     versionUrl,
-    repoName,
-    repoUrl
+    repoName
   })
   t.plan(1)
   t.deepEqual(config, {
@@ -62,7 +61,7 @@ test('passing all arguments with env should succeed', async t => {
     templateContext: {
       npm_user: npmUser,
       repo: {
-        url: repoUrl,
+        url: `https://github.com/${repoName}`,
         name: repoName
       },
       version: {

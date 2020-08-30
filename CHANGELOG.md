@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.9.5](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.4...v0.9.5) (2020-08-30)
+
+
+### Bug Fixes
+
+* get repo info from environment variables ([231af4b](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/231af4bd5bd759ded6cebc1eeeacc8f7eadaa726))
+
 ### [0.9.4](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.3...v0.9.4) (2020-08-30)
 
 

@@ -89,7 +89,7 @@ async function main () {
     app.log.info(`server listening on ${address}`)
 
     const ngrokUrl = await ngrok.connect(3000)
-    notifier.notify(ngrokUrl)
+    await notifier.notify(ngrokUrl)
   })
 
   process.on('uncaughtException', (error) => {

@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.9.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.8.1...v0.9.0) (2020-08-30)
+
+
+### Features
+
+* use docker instead of default nodejs action ([6a8a5f3](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/6a8a5f3524c99eb99f0126d6d4c75b32e4fbeb82))
+
+
+### Bug Fixes
+
+* **ci:** fix lint and test files ([96b53bb](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/96b53bb9022e406b0c57fdfdb7b9feee3c646fc4))
+* **ci:** fix lint run command ([64a32ca](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/64a32cae6879f829c1827f1d4df3ae1cdc152944))
+
 ### [0.8.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.8.0...v0.8.1) (2020-08-29)
 
 

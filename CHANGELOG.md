@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.9.11](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.10...v0.9.11) (2020-08-30)
+
+
+### Bug Fixes
+
+* linter errors ([a0ba21a](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/a0ba21a673ac3fbce286a334f8cfed5fa9c5c485))
+* pass token correctly to octokit ([75546fa](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/75546fa1de87483e0f68e9979f8930c5b46180a2))
+
 ### [0.9.10](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.9...v0.9.10) (2020-08-30)
 
 

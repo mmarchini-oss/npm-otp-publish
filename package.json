@@ -4,7 +4,11 @@
   "description": "Action to publish npm pacakges using One-Time Passwords",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "dev": "node index.js --github-token invalid --npm-token invalid --notifier console",
+    "test": "tape test/*.test.js",
+    "lint": "npm run lint-js && npm run lint-sh",
+    "lint-js": "standard",
+    "lint-sh": "shellcheck entrypoint.sh"
   },
   "repository": {
     "type": "git",
@@ -26,10 +30,15 @@
     "fastq": "^1.8.0",
     "ngrok": "^3.2.7",
     "point-of-view": "^4.4.0",
-    "queue": "^6.0.1"
+    "queue": "^6.0.1",
+    "yaml": "^1.10.0",
+    "yargs": "^15.4.1"
   },
   "devDependencies": {
+    "nyc": "^15.1.0",
     "pino-pretty": "^4.2.0",
-    "standard": "^14.3.4"
+    "standard": "^14.3.4",
+    "tape": "^4.13.3",
+    "tape-promise": "^4.0.0"
   }
 }

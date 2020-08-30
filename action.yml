@@ -18,5 +18,11 @@ inputs:
     required: true
     default: 'github-issue'
 runs:
-  using: 'node14'
-  main: 'index.js'
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '--npm_user=${{ inputs.npm_user }}'
+    - '--version_url=${{ inputs.version_url }}'
+    - '--npm_token=${{ inputs.npm_token }}'
+    - '--github_token=${{ inputs.github_token }}'
+    - '--notifier=${{ inputs.notifier }}'

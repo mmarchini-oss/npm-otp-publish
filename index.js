@@ -86,12 +86,15 @@ async function main () {
   })
 
   app.listen(3000, async (err, address) => {
-    app.log.info({ env: process.env }, 'available environment variables')
     if (err) throw err
-    app.log.info(`server listening on ${address}`)
 
+    app.log.info('starting ngrok...')
     const ngrokUrl = await ngrok.connect(3000)
+    app.log.info({ ngrokUrl }, 'starting ngrok... done')
+
+    app.log.info('notifying...')
     await notifier.notify(ngrokUrl)
+    app.log.info('notifying... done')
   })
 
   process.on('uncaughtException', (error) => {

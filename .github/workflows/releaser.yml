@@ -3,7 +3,7 @@ on:
     branches:
       - main
 
-name: release-please
+name: releaser
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -16,13 +16,6 @@ jobs:
           package-name: '@mmarchini/node-otp-publish'
 
       - uses: actions/checkout@v2
-        if: ${{ steps.release.outputs.release_created }}
-      - name: Use Node.js 12.x
-        if: ${{ steps.release.outputs.release_created }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - run: npm ci
         if: ${{ steps.release.outputs.release_created }}
       - uses: ./
         if: ${{ steps.release.outputs.release_created }}

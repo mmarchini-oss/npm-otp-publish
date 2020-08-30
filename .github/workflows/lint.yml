@@ -14,4 +14,4 @@ jobs:
           node-version: 14.x
       - run: sudo apt-get install shellcheck
       - run: npm ci
-      - uses: npm lint
+      - run: npm lint

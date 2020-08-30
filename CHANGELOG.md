@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.9.3](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.2...v0.9.3) (2020-08-30)
+
+
+### Bug Fixes
+
+* don't rely on github.context ([ab9d884](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/ab9d884f54236b127bb4d2b60cb0f13b910729ce))
+* ensure we exit on unhanded rejection ([05319fe](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/05319fece070ba00c747bd4e7cb19d380b322d77))
+
 ### [0.9.2](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.1...v0.9.2) (2020-08-30)
 
 

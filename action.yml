@@ -26,3 +26,5 @@ runs:
     - '--npm-token=${{ inputs.npm_token }}'
     - '--github-token=${{ inputs.github_token }}'
     - '--notifier=${{ inputs.notifier }}'
+    - '--repo-url=${{ github.event.repository.html_url }}'
+    - '--repo-name=${{ github.repository }}'

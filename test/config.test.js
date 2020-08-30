@@ -12,7 +12,7 @@ test('passing no arguments should fail', t => {
 
 test('passing empty arguments should return defaults', t => {
   t.plan(1)
-  const config = getConfig({}, {}, {})
+  const config = getConfig({})
   t.deepEqual(config, {
     npmToken: undefined,
     notifier: undefined,
@@ -28,7 +28,10 @@ test('passing empty arguments should return defaults', t => {
         name: packageJson.version
       }
     },
-    githubContext: {},
+    repo: {
+      repo: undefined,
+      owner: undefined
+    },
     octokit: null
   })
 })
@@ -39,7 +42,7 @@ test('passing all arguments with env should succeed', async t => {
   const githubToken = 'a3'
   const npmUser = 'a4'
   const versionUrl = 'a5'
-  const repoName = 'a6'
+  const repoName = 'a6/a9'
   const repoUrl = 'a7'
 
   const config = getConfig({
@@ -47,58 +50,10 @@ test('passing all arguments with env should succeed', async t => {
     notifier,
     githubToken,
     npmUser,
-    versionUrl
-  },
-  {
-    REPO_NAME: repoName,
-    REPO_URL: repoUrl
-  }, { })
-  t.plan(1)
-  t.deepEqual(config, {
-    npmToken,
-    notifier,
-    githubToken,
-    templateContext: {
-      npm_user: npmUser,
-      repo: {
-        url: repoUrl,
-        name: repoName
-      },
-      version: {
-        url: versionUrl,
-        name: packageJson.version
-      }
-    },
-    githubContext: {},
-    octokit: config.octokit
+    versionUrl,
+    repoName,
+    repoUrl
   })
-})
-
-test('passing all arguments with context should succeed', async t => {
-  const npmToken = 'a1'
-  const notifier = 'a2'
-  const githubToken = 'a3'
-  const npmUser = 'a4'
-  const versionUrl = 'a5'
-  const repoName = 'a6'
-  const repoUrl = 'a7'
-
-  const githubContext = {
-    payload: {
-      repository: {
-        full_name: repoName,
-        html_url: repoUrl
-
-      }
-    }
-  }
-  const config = getConfig({
-    npmToken,
-    notifier,
-    githubToken,
-    npmUser,
-    versionUrl
-  }, { }, githubContext)
   t.plan(1)
   t.deepEqual(config, {
     npmToken,
@@ -115,7 +70,10 @@ test('passing all arguments with context should succeed', async t => {
         name: packageJson.version
       }
     },
-    githubContext,
+    repo: {
+      repo: 'a9',
+      owner: 'a6'
+    },
     octokit: config.octokit
   })
 })

@@ -4,7 +4,8 @@
 const core = require('@actions/core')
 const fastify = require('fastify')
 const ngrok = require('ngrok')
-const context = require('@actions/github').context
+const { GITHUB_EVENT_PATH } = process.env
+const context = GITHUB_EVENT_PATH ? require(GITHUB_EVENT_PATH) : {}
 
 const { getOptions } = require('./lib/cli')
 const { getConfig } = require('./lib/config')

@@ -43,7 +43,6 @@ test('passing all arguments with env should succeed', async t => {
   const npmUser = 'a4'
   const versionUrl = 'a5'
   const repoName = 'a6/a9'
-  const repoUrl = 'a7'
 
   const config = getConfig({
     npmToken,

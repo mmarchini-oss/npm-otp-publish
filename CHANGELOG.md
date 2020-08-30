@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.9.2](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.1...v0.9.2) (2020-08-30)
+
+
+### Bug Fixes
+
+* use env variable context to work on Docker ([7a57dad](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/7a57dadd2bc12b6e5e8df6b04a9b4e48c29fd8be))
+* **notifier:** throw if notifier fails ([42b171f](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/42b171f397952a09268e6aa7a05840d2d62c6b21))
+
 ### [0.9.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.0...v0.9.1) (2020-08-30)
 
 

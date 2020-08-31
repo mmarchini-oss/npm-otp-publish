@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.14.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.14.0...v0.14.1) (2020-08-31)
+
+
+### Bug Fixes
+
+* use release id instead of tag name ([7d10771](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/7d10771b7e1cdd10da7897cc8417e3ebd410fd59))
+
 ## [0.14.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.13.0...v0.14.0) (2020-08-31)
 
 

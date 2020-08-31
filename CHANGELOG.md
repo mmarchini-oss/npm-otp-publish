@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.11.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.10.1...v0.11.0) (2020-08-31)
+
+
+### Features
+
+* set actor and team for action testing ([06cb6ea](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/06cb6ea9b7390e8f14a54b95f7f11f14728c7552))
+
+
+### Bug Fixes
+
+* pass context to success template ([77f3fd7](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/77f3fd75ad08a308282a59f2b41df380f7715d53))
+* remove incorrect line break on issue ([996c2ee](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/996c2eed165b07d15bda6f5e066ec23f68db27e7))
+
 ### [0.10.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.10.0...v0.10.1) (2020-08-31)
 
 

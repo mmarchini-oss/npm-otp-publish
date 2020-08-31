@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.14.2](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.14.1...v0.14.2) (2020-08-31)
+
+
+### Bug Fixes
+
+* fetch release id and target_commitish ([f1c43a8](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/f1c43a8647a6ec43eb8953db4ea24b40400366d7))
+
 ### [0.14.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.14.0...v0.14.1) (2020-08-31)
 
 

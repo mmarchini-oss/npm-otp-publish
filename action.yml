@@ -1,5 +1,8 @@
 name: 'npm-otp-publish'
 description: 'Action to publish npm pacakges using One-Time Passwords'
+branding:
+  color: red
+  icon: package
 inputs:
   npm_user:
     description: 'npm user name'

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.11...v0.10.0) (2020-08-31)
+
+
+### Features
+
+* improve issue description and all pages ([d0c0473](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/d0c0473cbc40949c75572215897459ea5e047a71))
+
 ### [0.9.11](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.10...v0.9.11) (2020-08-30)
 
 

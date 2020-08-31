@@ -3,6 +3,7 @@
 
 const fastify = require('fastify')
 const ngrok = require('ngrok')
+const path = require('path')
 
 const { getOptions } = require('./lib/cli')
 const { getConfig } = require('./lib/config')
@@ -32,6 +33,10 @@ async function main () {
     engine: {
       ejs: require('ejs')
     }
+  })
+  app.register(require('fastify-static'), {
+    root: path.join(__dirname, 'public'),
+    prefix: '/public/'
   })
 
   app.get('/', (request, reply) => {

@@ -21,6 +21,7 @@ async function main () {
 
   const config = getConfig(options)
   const app = fastify({
+    // TODO(mmarchini): custom logger transport for Actions
     logger: {
       prettyPrint: true
     }
@@ -44,6 +45,32 @@ async function main () {
     return reply.view('/public/index.ejs', config.templateContext)
   })
 
+  let serverTimeout
+  function closeServer (timeoutReached = false) {
+    if (timeoutReached) {
+      app.log.error('timeout reached, closing server')
+    }
+    if (serverTimeout) {
+      clearTimeout(serverTimeout)
+    }
+    // We need this to execute ASAP, so this function can't be async
+    npmPublish.end()
+    // In case some of the closing methods fail, we force-exit
+    setTimeout(() => process.exit(0), 5 * 1000)
+    const cb = err => {
+      if (err) {
+        app.log.error(err)
+      }
+      setTimeout(() => {
+        app.log.info('closing server')
+        app.close()
+      }, 1000)
+    }
+    notifier.end().then(cb, cb)
+  }
+  setTimeout(closeServer, config.timeout || 5 * 1000)
+  app.log.info({ timeout: config.timeout }, 'timeout set')
+
   app.post('/', async (request, reply) => {
     try {
       app.log.error('otp received, attempting to publish')
@@ -51,17 +78,7 @@ async function main () {
       app.log.error('attempt finished')
       if (published) {
         app.log.error('publish successful')
-        npmPublish.end()
-        const cb = err => {
-          if (err) {
-            app.log.error(err)
-          }
-          setTimeout(() => {
-            app.log.info('closing server')
-            app.close(() => process.exit(0))
-          }, 100)
-        }
-        notifier.end().then(cb, cb)
+        closeServer()
 
         return reply.view('/public/success.ejs', config.templateContext)
       }

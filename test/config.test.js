@@ -35,7 +35,8 @@ test('passing empty arguments should return defaults', t => {
       repo: undefined,
       owner: undefined
     },
-    octokit: null
+    octokit: null,
+    timeout: 15 * 60 * 1000
   })
 })
 
@@ -53,7 +54,8 @@ test('passing all arguments with env should succeed', async t => {
     githubToken,
     npmUser,
     versionUrl,
-    repoName
+    repoName,
+    timeout: 1
   })
   const version = {
     url: versionUrl,
@@ -78,6 +80,7 @@ test('passing all arguments with env should succeed', async t => {
       owner: 'a6'
     },
     version,
-    octokit: config.octokit
+    octokit: config.octokit,
+    timeout: 60 * 1000
   })
 })

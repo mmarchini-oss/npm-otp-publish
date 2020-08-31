@@ -25,6 +25,10 @@ inputs:
     description: 'release team to assign the issue'
     required: false
     default: 'github-issue'
+  timeout:
+    description: 'timeout (in minutes) before the server closes'
+    required: true
+    default: '15'
 runs:
   using: 'docker'
   image: 'Dockerfile'

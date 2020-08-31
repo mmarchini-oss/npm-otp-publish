@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.12.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.11.1...v0.12.0) (2020-08-31)
+
+
+### Features
+
+* add cors ([3032003](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/30320039ba1c1b74a269a32f0be1c8c01631b5c8))
+* add timeout ([fb79d75](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/fb79d755f1290a5dfdfdd8460500a542ab210ae9))
+
+
+### Bug Fixes
+
+* fix actor and release team ([7bd5470](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/7bd5470e670898f28739e88f390f87f27a997d45))
+
 ### [0.11.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.11.0...v0.11.1) (2020-08-31)
 
 

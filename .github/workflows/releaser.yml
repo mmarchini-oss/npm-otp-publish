@@ -14,7 +14,17 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           package-name: '@mmarchini/node-otp-publish'
-
+      # Since it's not possible to publish to the Marketplace via API yet, set
+      # the version here manually so we remember to update it on majors
+      - uses: octokit/request-action@v2.x
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          route: PATCH /repos/:repository/releases/v0
+          repository: ${{ github.repository }}
+          target_commitish: ${{ steps.release.outputs.tag_name }}
+          body: 'See https://github.com/${{ github.repository }}/releases/tag/${{ steps.release.outputs.tag_name }} for latest changelog'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
       - uses: ./

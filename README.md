@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: mmarchini-oss/npm-otp-publish
+      - uses: mmarchini-oss/npm-otp-publish@v0
         with:
           npm_token: ${{ secrets.NPM_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -72,7 +72,7 @@ jobs:
 
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
-      - uses: mmarchini-oss/npm-otp-publish
+      - uses: mmarchini-oss/npm-otp-publish@v0
         if: ${{ steps.release.outputs.release_created }}
         with:
           npm_token: ${{ secrets.NPM_TOKEN }}

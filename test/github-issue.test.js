@@ -32,8 +32,7 @@ test('getBody with versio only', async t => {
     }
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
-  t.equal(notifier.getBody('ngrok://foo'), `Please [provide an One-Time Password](ngrok://foo) to continue the
-release for v0.1.2.
+  t.equal(notifier.getBody('ngrok://foo'), `Please [provide an One-Time Password](ngrok://foo) to continue the release for v0.1.2.
 
 
 **OTP URL**: ngrok://foo`)
@@ -48,8 +47,7 @@ test('getBody with version and version url', async t => {
     }
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
-  t.equal(notifier.getBody('ngrok://foo'), `Please [provide an One-Time Password](ngrok://foo) to continue the
-release for [v0.1.2](github.com).
+  t.equal(notifier.getBody('ngrok://foo'), `Please [provide an One-Time Password](ngrok://foo) to continue the release for [v0.1.2](github.com).
 
 
 **OTP URL**: ngrok://foo`)
@@ -65,8 +63,7 @@ test('getBody with everything', async t => {
     }
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
-  t.equal(notifier.getBody('ngrok://foo'), `Please [provide an One-Time Password](ngrok://foo) to continue the
-release for [v0.1.2](github.com).
+  t.equal(notifier.getBody('ngrok://foo'), `Please [provide an One-Time Password](ngrok://foo) to continue the release for [v0.1.2](github.com).
 
 **Requested by**: @me
 **OTP URL**: ngrok://foo`)

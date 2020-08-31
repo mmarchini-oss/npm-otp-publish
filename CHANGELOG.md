@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.14.3](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.14.2...v0.14.3) (2020-08-31)
+
+
+### Bug Fixes
+
+* parse json ([0dde539](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/0dde539eb85db995bb4d1dab3c0a8ccbea7c8e89))
+
 ### [0.14.2](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.14.1...v0.14.2) (2020-08-31)
 
 

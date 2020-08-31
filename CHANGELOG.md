@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.10.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.10.0...v0.10.1) (2020-08-31)
+
+
+### Bug Fixes
+
+* add actor option to fix syntax error ([9e9976f](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/9e9976f64f26ab6ba4b13f5f4d5fdb11e468d2bc))
+
 ## [0.10.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.9.11...v0.10.0) (2020-08-31)
 
 

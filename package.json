@@ -25,6 +25,7 @@
     "@octokit/rest": "^18.0.4",
     "ejs": "^3.1.5",
     "fastify": "^3.3.0",
+    "fastify-cors": "^4.1.0",
     "fastify-formbody": "^5.0.0",
     "fastify-static": "^3.2.0",
     "fastq": "^1.8.0",

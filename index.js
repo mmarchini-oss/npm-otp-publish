@@ -38,12 +38,12 @@ async function main () {
     root: path.join(__dirname, 'public'),
     prefix: '/public/'
   })
+  app.register(require('fastify-cors'), { })
 
   app.get('/', (request, reply) => {
     return reply.view('/public/index.ejs', config.templateContext)
   })
 
-  // TODO(mmarchini): CORS
   app.post('/', async (request, reply) => {
     try {
       app.log.error('otp received, attempting to publish')

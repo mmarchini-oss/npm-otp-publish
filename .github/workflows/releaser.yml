@@ -41,8 +41,8 @@ jobs:
         with:
           route: PATCH /repos/:repository/releases/:release_id
           repository: ${{ github.repository }}
-          release_id: ${{ steps.get_current.outputs.id }}
-          target_commitish: ${{ steps.get_released.outputs.target_commitish }}
+          release_id: ${{ fromJson(steps.get_current.outputs.data).id }}
+          target_commitish: ${{ fromJson(steps.get_released.outputs.data).target_commitish }}
           body: 'See https://github.com/${{ github.repository }}/releases/tag/${{ steps.release.outputs.tag_name }} for latest changelog'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

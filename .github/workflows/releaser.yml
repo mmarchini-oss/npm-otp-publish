@@ -24,3 +24,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           version_url: https://github.com/${{ github.repository }}/releases/tag/${{ steps.release.outputs.tag_name }}
           npm_user: mmarchini-bot
+          actor: ${{ github.actor }}
+          release_team: mmarchini-oss/collaborators

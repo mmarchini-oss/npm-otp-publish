@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.14.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.13.0...v0.14.0) (2020-08-31)
+
+
+### Features
+
+* add branding for Action ([37db086](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/37db0868b5b3e3c33d314054ea81ea7f5b6048d1))
+
+
+### Bug Fixes
+
+* readme examples weren't tagged ([b56de09](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/b56de09cddb4f5387f920518245fb870074865b6))
+
 ## [0.13.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.12.1...v0.13.0) (2020-08-31)
 
 

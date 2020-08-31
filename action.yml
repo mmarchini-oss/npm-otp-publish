@@ -10,12 +10,16 @@ inputs:
   npm_token:
     description: 'npm token'
     required: true
-  github_token:  # id of input
+  github_token:
     description: 'github token'
     required: true
-  notifier:  # id of input
+  notifier:
     description: 'notifier to be used'
     required: true
+    default: 'github-issue'
+  release_team:
+    description: 'release team to assign the issue'
+    required: false
     default: 'github-issue'
 runs:
   using: 'docker'
@@ -26,3 +30,5 @@ runs:
     - '--npm-token=${{ inputs.npm_token }}'
     - '--github-token=${{ inputs.github_token }}'
     - '--notifier=${{ inputs.notifier }}'
+    - '--actor=${{ github.actor }}'
+    - '--release-team=${{ inputs.release_team }}'

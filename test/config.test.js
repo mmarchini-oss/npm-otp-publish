@@ -13,6 +13,11 @@ test('passing no arguments should fail', t => {
 test('passing empty arguments should return defaults', t => {
   t.plan(1)
   const config = getConfig({})
+
+  const version = {
+    url: undefined,
+    name: packageJson.version
+  }
   t.deepEqual(config, {
     npmToken: undefined,
     notifier: undefined,
@@ -23,11 +28,9 @@ test('passing empty arguments should return defaults', t => {
         url: undefined,
         name: undefined
       },
-      version: {
-        url: undefined,
-        name: packageJson.version
-      }
+      version
     },
+    version,
     repo: {
       repo: undefined,
       owner: undefined
@@ -52,6 +55,11 @@ test('passing all arguments with env should succeed', async t => {
     versionUrl,
     repoName
   })
+  const version = {
+    url: versionUrl,
+    name: packageJson.version
+  }
+
   t.plan(1)
   t.deepEqual(config, {
     npmToken,
@@ -63,15 +71,13 @@ test('passing all arguments with env should succeed', async t => {
         url: `https://github.com/${repoName}`,
         name: repoName
       },
-      version: {
-        url: versionUrl,
-        name: packageJson.version
-      }
+      version
     },
     repo: {
       repo: 'a9',
       owner: 'a6'
     },
+    version,
     octokit: config.octokit
   })
 })

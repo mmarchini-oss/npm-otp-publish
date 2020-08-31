@@ -34,7 +34,19 @@ test('should create and close issue', async t => {
     .reply(200)
 
   const octokit = new Octokit({ auth: '***' })
-  const notifier = new Notifier({ notifier: 'github-issue', octokit, repo: { owner, repo } }, mockLogger)
+  const config = {
+    notifier: 'github-issue',
+    octokit,
+    repo: {
+      owner,
+      repo
+    },
+    actor: 'me',
+    version: {
+      name: 'v0.1.2'
+    }
+  }
+  const notifier = new Notifier(config, mockLogger)
   await notifier.notify()
   scope.done()
 
@@ -61,7 +73,7 @@ test('should create and close issue on Actions', async t => {
 
   // const config = { notifier: 'github-issue', octokit, repo: { owner, repo } }
   const env = { GITHUB_ACTIONS: true, GITHUB_REPOSITORY: `${owner}/${repo}` }
-  const opts = await getOptions(['--githubToken=***', '--npmToken=***', '--notifier=github-issue'], env)
+  const opts = await getOptions(['--githubToken=***', '--npmToken=***', '--notifier=github-issue', '--actor=me'], env)
   const config = getConfig(opts)
   const notifier = new Notifier(config, mockLogger)
   await notifier.notify()

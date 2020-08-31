@@ -15,13 +15,17 @@ test('passing all arguments should succeed', async t => {
     '--npm-token=token1',
     '--github-token=token2',
     '--version-url=httpsurl',
-    '--notifier=console'
+    '--notifier=console',
+    '--actor=me',
+    '--release-team=team'
   ])
   t.equal(args.npmUser, 'user')
   t.equal(args.npmToken, 'token1')
   t.equal(args.githubToken, 'token2')
   t.equal(args.versionUrl, 'httpsurl')
   t.equal(args.notifier, 'console')
+  t.equal(args.actor, 'me')
+  t.equal(args.releaseTeam, 'team')
 })
 
 test('passing invalid arguments to notifier should fail', t => {

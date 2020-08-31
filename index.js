@@ -46,7 +46,6 @@ async function main () {
       app.log.error('attempt finished')
       if (published) {
         app.log.error('publish successful')
-        // TODO(mmarchini): Close issue
         npmPublish.end()
         const cb = err => {
           if (err) {
@@ -66,19 +65,15 @@ async function main () {
       // TODO(mmarchini): limit attempts
       // TODO(mmarchini): limit time
       app.log.error('publish failed')
-      // TODO(mmarchini): stderr on response
-      return reply.view('/public/failure.ejs')
+      return reply.view('/public/failure.ejs', { error: 'npm' })
     } catch (err) {
-      // TODO(mmarchini): limit attempts
-      // TODO(mmarchini): limit time
       app.log.error('publish failed for unknown reasons')
       if (err.stdout || err.stderr) {
         app.log.error({ stdout: err.stdout, stderr: err.stderr }, err)
       } else {
         app.log.error(err)
       }
-      // TODO(mmarchini): stderr on response
-      return reply.view('/public/failure.ejs')
+      return reply.view('/public/failure.ejs', { error: 'uknown', stack: err.stack })
     }
   })
 

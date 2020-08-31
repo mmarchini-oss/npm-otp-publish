@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>npm OTP authentication</title>
     </head>
     <body>
-        Failed :(
+        <h1 class="splash-head">npm One-Time Password (OTP)</h1>
+        <p>Failed to publish package. You can <a href="/">try entrering another OTP code</a>.</p>
+        <% if (error === 'npm') { %>
+            <p>Error while executing <pre>npm publish</pre> (this is probably due to invalid OTP code)</p>
+        <% } else { %>
+            <p>Unknown error</p>
+            <pre><%= stack %></pre>
+        <% } %>
     </body>
 </html>

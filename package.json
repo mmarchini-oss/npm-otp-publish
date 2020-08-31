@@ -4,7 +4,7 @@
   "description": "Action to publish npm pacakges using One-Time Passwords",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js --github-token invalid --npm-token invalid --notifier console",
+    "dev": "node index.js --github-token invalid --npm-token invalid --notifier console --actor me",
     "test": "tape test/*.test.js",
     "lint": "npm run lint-js && npm run lint-sh",
     "lint-js": "standard",

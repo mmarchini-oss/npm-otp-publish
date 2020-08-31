@@ -17,7 +17,7 @@ const mockLogger = {
 test('getTitle', async t => {
   const config = {
     version: {
-      name: 'v0.1.2'
+      name: '0.1.2'
     }
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
@@ -28,7 +28,7 @@ test('getTitle', async t => {
 test('getBody with versio only', async t => {
   const config = {
     version: {
-      name: 'v0.1.2'
+      name: '0.1.2'
     }
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
@@ -42,7 +42,7 @@ test('getBody with versio only', async t => {
 test('getBody with version and version url', async t => {
   const config = {
     version: {
-      name: 'v0.1.2',
+      name: '0.1.2',
       url: 'github.com'
     }
   }
@@ -58,7 +58,7 @@ test('getBody with everything', async t => {
   const config = {
     actor: 'me',
     version: {
-      name: 'v0.1.2',
+      name: '0.1.2',
       url: 'github.com'
     }
   }

@@ -58,8 +58,7 @@ async function main () {
         }
         notifier.end().then(cb, cb)
 
-        // TODO(mmarchini): Redirect/link to GitHub or npm
-        return reply.view('/public/success.ejs')
+        return reply.view('/public/success.ejs', config.templateContext)
       }
 
       // TODO(mmarchini): limit attempts

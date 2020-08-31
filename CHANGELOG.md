@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.11.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.11.0...v0.11.1) (2020-08-31)
+
+
+### Bug Fixes
+
+* add v to version on issue ([43c3175](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/43c3175d6f15696c44e9357bc677f98046be985d))
+* correct path to penguin gif ([d3dd067](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/d3dd0678258398236f3faa5fb0637f0aa6d4be1d))
+
 ## [0.11.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.10.1...v0.11.0) (2020-08-31)
 
 

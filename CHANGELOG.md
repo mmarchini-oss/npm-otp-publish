@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.12.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.12.0...v0.12.1) (2020-08-31)
+
+
+### Bug Fixes
+
+* use correct arguments ([eca3e8b](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/eca3e8b948aac7fca2b5065e7f9ea3e76f283246))
+
 ## [0.12.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.11.1...v0.12.0) (2020-08-31)
 
 

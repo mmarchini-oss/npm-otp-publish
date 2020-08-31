@@ -14,14 +14,35 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           package-name: '@mmarchini/node-otp-publish'
+
+      - uses: octokit/request-action@v2.x
+        id: get_current
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          # Since it's not possible to publish to the Marketplace via API yet,
+          # set the version here manually so we remember to update it on majors
+          route: GET /repos/:repository/releases/tags/v0
+          repository: ${{ github.repository }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: octokit/request-action@v2.x
+        id: get_released
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          route: GET /repos/:repository/releases/tags/:tag
+          repository: ${{ github.repository }}
+          tag: ${{ steps.release.outputs.tag_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Since it's not possible to publish to the Marketplace via API yet, set
       # the version here manually so we remember to update it on majors
       - uses: octokit/request-action@v2.x
         if: ${{ steps.release.outputs.release_created }}
         with:
-          route: PATCH /repos/:repository/releases/30413299
+          route: PATCH /repos/:repository/releases/:release_id
           repository: ${{ github.repository }}
-          target_commitish: ${{ steps.release.outputs.tag_name }}
+          release_id: ${{ steps.get_current.outputs.id }}
+          target_commitish: ${{ steps.get_released.outputs.target_commitish }}
           body: 'See https://github.com/${{ github.repository }}/releases/tag/${{ steps.release.outputs.tag_name }} for latest changelog'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

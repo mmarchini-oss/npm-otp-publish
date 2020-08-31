@@ -39,5 +39,5 @@ runs:
     - '--npm-token=${{ inputs.npm_token }}'
     - '--github-token=${{ inputs.github_token }}'
     - '--notifier=${{ inputs.notifier }}'
-    - '--actor=${{ inputs.actor }}'
-    - '--release-team=${{ inputs.release_team }}'
+    - '--github-actor=${{ inputs.actor }}'
+    - '--github-release-team=${{ inputs.release_team }}'

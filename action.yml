@@ -17,6 +17,10 @@ inputs:
     description: 'notifier to be used'
     required: true
     default: 'github-issue'
+  actor:
+    description: 'release team to assign the issue'
+    required: true
+    default: ${{ github.actor }}
   release_team:
     description: 'release team to assign the issue'
     required: false
@@ -30,5 +34,5 @@ runs:
     - '--npm-token=${{ inputs.npm_token }}'
     - '--github-token=${{ inputs.github_token }}'
     - '--notifier=${{ inputs.notifier }}'
-    - '--actor=${{ github.actor }}'
+    - '--actor=${{ inputs.actor }}'
     - '--release-team=${{ inputs.release_team }}'

@@ -84,7 +84,6 @@ async function main () {
       }
 
       // TODO(mmarchini): limit attempts
-      // TODO(mmarchini): limit time
       app.log.error('publish failed')
       return reply.view('/public/failure.ejs', { error: 'npm' })
     } catch (err) {

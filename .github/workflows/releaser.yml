@@ -19,7 +19,7 @@ jobs:
       - uses: octokit/request-action@v2.x
         if: ${{ steps.release.outputs.release_created }}
         with:
-          route: PATCH /repos/:repository/releases/v0
+          route: PATCH /repos/:repository/releases/30413299
           repository: ${{ github.repository }}
           target_commitish: ${{ steps.release.outputs.tag_name }}
           body: 'See https://github.com/${{ github.repository }}/releases/tag/${{ steps.release.outputs.tag_name }} for latest changelog'

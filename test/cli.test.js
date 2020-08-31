@@ -9,6 +9,16 @@ test('passing no arguments should fail', t => {
   t.rejects(getOptions([]))
 })
 
+test('--github-token is required on github-issue', t => {
+  t.plan(1)
+  getOptions([
+    '--npm-token=token1',
+    '--notifier=github-issue'
+  ]).then(t.fail, err =>
+    t.ok(err.output.match(/--github-token is required with `github-issue` notifier/))
+  )
+})
+
 test('passing all arguments should succeed', async t => {
   const args = await getOptions([
     '--npm-user=user',

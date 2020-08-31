@@ -10,25 +10,26 @@ inputs:
   npm_token:
     description: 'npm token'
     required: true
-  github_token:
-    description: 'github token'
-    required: true
   notifier:
     description: 'notifier to be used'
     required: true
-    default: 'github-issue'
-  actor:
-    description: 'release team to assign the issue'
-    required: true
-    default: ${{ github.actor }}
-  release_team:
-    description: 'release team to assign the issue'
-    required: false
     default: 'github-issue'
   timeout:
     description: 'timeout (in minutes) before the server closes'
     required: true
     default: '15'
+  # GitHub Issue notifier options
+  github_token:
+    description: 'github token (required if notifier is github-issue)'
+    required: false
+  github_actor:
+    description: 'release team to assign the issue'
+    required: false
+    default: ${{ github.actor }}
+  github_release_team:
+    description: 'release team to assign the issue'
+    required: false
+    default: 'github-issue'
 runs:
   using: 'docker'
   image: 'Dockerfile'

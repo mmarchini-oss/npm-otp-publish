@@ -29,7 +29,8 @@ test('getBody with versio only', async t => {
   const config = {
     version: {
       name: '0.1.2'
-    }
+    },
+    githubIssue: {}
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
   t.equal(notifier.getBody('ngrok://foo'), `Please [provide an One-Time Password](ngrok://foo) to continue the release for v0.1.2.
@@ -44,7 +45,8 @@ test('getBody with version and version url', async t => {
     version: {
       name: '0.1.2',
       url: 'github.com'
-    }
+    },
+    githubIssue: {}
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
   t.equal(notifier.getBody('ngrok://foo'), `Please [provide an One-Time Password](ngrok://foo) to continue the release for [v0.1.2](github.com).
@@ -56,10 +58,12 @@ test('getBody with version and version url', async t => {
 
 test('getBody with everything', async t => {
   const config = {
-    actor: 'me',
     version: {
       name: '0.1.2',
       url: 'github.com'
+    },
+    githubIssue: {
+      actor: 'me'
     }
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
@@ -71,7 +75,9 @@ test('getBody with everything', async t => {
 })
 
 test('getAssignees without actor or team', async t => {
-  const config = { }
+  const config = {
+    githubIssue: {}
+  }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
   t.deepEqual(notifier.getAssignees(), [])
   t.end()
@@ -79,7 +85,9 @@ test('getAssignees without actor or team', async t => {
 
 test('getAssignees with actor but no team', async t => {
   const config = {
-    actor: 'me'
+    githubIssue: {
+      actor: 'me'
+    }
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
   t.deepEqual(notifier.getAssignees(), ['me'])
@@ -88,7 +96,9 @@ test('getAssignees with actor but no team', async t => {
 
 test('getAssignees with no actor but team', async t => {
   const config = {
-    releaseTeam: 'team'
+    githubIssue: {
+      releaseTeam: 'team'
+    }
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
   t.deepEqual(notifier.getAssignees(), ['team'])
@@ -97,8 +107,10 @@ test('getAssignees with no actor but team', async t => {
 
 test('getAssignees with actor and team', async t => {
   const config = {
-    actor: 'me',
-    releaseTeam: 'team'
+    githubIssue: {
+      actor: 'me',
+      releaseTeam: 'team'
+    }
   }
   const notifier = new GitHubIssueNotifier(config, mockLogger)
   t.deepEqual(notifier.getAssignees(), ['me', 'team'])
@@ -128,8 +140,10 @@ test('should create and close issue', async t => {
       owner,
       repo
     },
-    actor: 'me',
-    releaseTeam: 'team/release',
+    githubIssue: {
+      actor: 'me',
+      releaseTeam: 'team/release'
+    },
     version: {
       name: 'v0.1.2'
     }

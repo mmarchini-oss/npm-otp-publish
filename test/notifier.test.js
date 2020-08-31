@@ -41,7 +41,9 @@ test('should create and close issue', async t => {
       owner,
       repo
     },
-    actor: 'me',
+    githubIssue: {
+      actor: 'me'
+    },
     version: {
       name: 'v0.1.2'
     }

@@ -36,6 +36,10 @@ test('passing empty arguments should return defaults', t => {
       owner: undefined
     },
     octokit: null,
+    githubIssue: {
+      actor: undefined,
+      releaseTeam: undefined
+    },
     timeout: 15 * 60 * 1000
   })
 })
@@ -55,6 +59,8 @@ test('passing all arguments with env should succeed', async t => {
     npmUser,
     versionUrl,
     repoName,
+    githubActor: 'me',
+    githubReleaseTeam: 'team',
     timeout: 1
   })
   const version = {
@@ -81,6 +87,10 @@ test('passing all arguments with env should succeed', async t => {
     },
     version,
     octokit: config.octokit,
+    githubIssue: {
+      actor: 'me',
+      releaseTeam: 'team'
+    },
     timeout: 60 * 1000
   })
 })

@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.14.4](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.14.3...v0.14.4) (2020-09-04)
+
+
+### Bug Fixes
+
+* don't set workdir as gh doesnt support it ([baaeab7](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/baaeab7dc1e26f2b6e2703bba8859cbc32d7fe41))
+
 ### [0.14.3](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.14.2...v0.14.3) (2020-08-31)
 
 

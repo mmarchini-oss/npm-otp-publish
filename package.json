@@ -4,7 +4,7 @@
   "description": "Action to publish npm pacakges using One-Time Passwords",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js --github-token invalid --npm-token invalid --notifier console --actor me",
+    "dev": "node bin/npm-otp-publish --npm-token invalid --notifier console",
     "test": "tape test/*.test.js",
     "lint": "npm run lint-js && npm run lint-sh",
     "lint-js": "standard",
@@ -20,8 +20,10 @@
     "url": "https://github.com/mmarchini-oss/npm-otp-publish/issues"
   },
   "homepage": "https://github.com/mmarchini-oss/npm-otp-publish#readme",
+  "bin": {
+    "npm-otp-publish": "./bin/npm-otp-publish.js"
+  },
   "dependencies": {
-    "@jsdevtools/npm-publish": "^1.2.0",
     "@octokit/rest": "^18.0.4",
     "ejs": "^3.1.5",
     "fastify": "^3.3.0",
@@ -32,7 +34,6 @@
     "ngrok": "^3.2.7",
     "point-of-view": "^4.4.0",
     "queue": "^6.0.1",
-    "yaml": "^1.10.0",
     "yargs": "^15.4.1"
   },
   "devDependencies": {

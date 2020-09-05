@@ -5,18 +5,22 @@ const fastify = require('fastify')
 const ngrok = require('ngrok')
 const path = require('path')
 
-const { getOptions } = require('./lib/cli')
-const { getConfig } = require('./lib/config')
-const { NpmPublish } = require('./lib/npm-publish')
-const { Notifier } = require('./lib/notifier')
+const { getOptions } = require('../lib/cli')
+const { getConfig } = require('../lib/config')
+const { NpmPublish } = require('../lib/npm-publish')
+const { Notifier } = require('../lib/notifier')
 
 async function main () {
   let options
   try {
     options = await getOptions(process.argv, process.env)
   } catch (err) {
-    console.error(err.output)
-    process.exit(1)
+    if (err.output) {
+      console.error(err.output)
+    } else {
+      throw err
+    }
+    return process.exit(1)
   }
 
   const config = getConfig(options)

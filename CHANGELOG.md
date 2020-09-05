@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.14.4...v0.15.0) (2020-09-05)
+
+
+### Features
+
+* detangle CLI from Action ([14cc052](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/14cc052695f5fe161a52bf6c676b85b68913a34e))
+
 ### [0.14.4](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.14.3...v0.14.4) (2020-09-04)
 
 

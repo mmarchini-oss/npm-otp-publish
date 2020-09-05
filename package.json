@@ -1,6 +1,6 @@
 {
   "name": "@mmarchini/npm-otp-publish",
-  "version": "0.14.4",
+  "version": "0.15.0",
   "description": "Action to publish npm pacakges using One-Time Passwords",
   "main": "index.js",
   "scripts": {

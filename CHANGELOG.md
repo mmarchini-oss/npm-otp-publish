@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.15.2](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.15.1...v0.15.2) (2020-09-06)
+
+
+### Bug Fixes
+
+* move pino-pretty to prod dep ([3bb1444](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/3bb1444145a12272ec18d989afd7aceb500b21b9))
+
 ### [0.15.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.15.0...v0.15.1) (2020-09-06)
 
 

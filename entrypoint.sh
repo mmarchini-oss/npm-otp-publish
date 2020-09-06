@@ -1,3 +1,3 @@
 #!/bin/bash
 
-node /app/index.js "$@"
+node /app/bin/npm-otp-publish "$@"

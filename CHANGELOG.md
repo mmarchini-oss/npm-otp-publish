@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.15.2...v0.16.0) (2020-09-06)
+
+
+### Features
+
+* use package from npm ([297cf94](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/297cf945559dc6ce8180e6cd7e80b23224c04cd0))
+
 ### [0.15.2](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.15.1...v0.15.2) (2020-09-06)
 
 

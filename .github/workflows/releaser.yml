@@ -15,6 +15,20 @@ jobs:
           release-type: node
           package-name: '@mmarchini/node-otp-publish'
 
+      - uses: actions/checkout@v2
+        if: ${{ steps.release.outputs.release_created }}
+      - uses: ./
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          npm_token: ${{ secrets.NPM_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          version_url: https://github.com/${{ github.repository }}/releases/tag/${{ steps.release.outputs.tag_name }}
+          npm_user: mmarchini-bot
+          github_actor: ${{ github.actor }}
+          github_release_team: mmarchini-oss/collaborators
+
+
+      # Release to GitHub Marketplace
       - uses: octokit/request-action@v2.x
         id: get_current
         if: ${{ steps.release.outputs.release_created }}
@@ -46,14 +60,3 @@ jobs:
           body: 'See https://github.com/${{ github.repository }}/releases/tag/${{ steps.release.outputs.tag_name }} for latest changelog'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/checkout@v2
-        if: ${{ steps.release.outputs.release_created }}
-      - uses: ./
-        if: ${{ steps.release.outputs.release_created }}
-        with:
-          npm_token: ${{ secrets.NPM_TOKEN }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          version_url: https://github.com/${{ github.repository }}/releases/tag/${{ steps.release.outputs.tag_name }}
-          npm_user: mmarchini-bot
-          github_actor: ${{ github.actor }}
-          github_release_team: mmarchini-oss/collaborators

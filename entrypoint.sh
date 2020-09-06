@@ -1,3 +1,3 @@
 #!/bin/bash
 
-node /app/bin/npm-otp-publish "$@"
+node /node_modules/.bin/npm-otp-publish "$@"

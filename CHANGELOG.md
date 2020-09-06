@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.15.1](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.15.0...v0.15.1) (2020-09-06)
+
+
+### Bug Fixes
+
+* use right path on entrypoint ([bad7ec4](https://www.github.com/mmarchini-oss/npm-otp-publish/commit/bad7ec4d26ea3ffae3c0a23f1b52963d6602ab0b))
+
 ## [0.15.0](https://www.github.com/mmarchini-oss/npm-otp-publish/compare/v0.14.4...v0.15.0) (2020-09-05)
 
 
